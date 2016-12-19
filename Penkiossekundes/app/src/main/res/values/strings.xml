@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Penkios sekundės</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="error_message_network">Network error</string>
+    <string name="error_message_call">Call failed</string>
+    <string name="error_message_map">Map loading failed</string>
+</resources>
