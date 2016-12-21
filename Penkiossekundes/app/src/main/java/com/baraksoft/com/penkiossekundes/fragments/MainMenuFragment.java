@@ -1,76 +1,54 @@
 package com.baraksoft.com.penkiossekundes.fragments;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.baraksoft.com.penkiossekundes.R;
 import com.baraksoft.com.penkiossekundes.activities.MainWindowActivity;
+import com.baraksoft.com.penkiossekundes.utils.FragmentUtils;
 
 /**
- * Created by LaurynasC on 2016-12-20.
+ * @author Laurynas
+ * @since 2016-12-20
  */
+public class MainMenuFragment extends Fragment implements View.OnClickListener {
 
-public class MainMenuFragment extends Fragment implements View.OnClickListener{
-
-    Button newGame;
-    Button load;
-    Button rules;
-    Button about;
-    FragmentManager manager;
+    private MediaPlayer mp;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        ActionBar actionBar = ((MainWindowActivity)getActivity()).getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(false);
-
+        mp = MediaPlayer.create(getContext(), R.raw.click_sound2);
         View view = inflater.inflate(R.layout.main_fragment, container, false);
-        manager = getFragmentManager();
 
-        //newGame = (Button) view.findViewById(R.id.btNewGame);
-        //rules = (Button) view.findViewById(R.id.btRules);
-        //about = (Button) view.findViewById(R.id.btSettings);
+        ((MainWindowActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
-        //newGame.setOnClickListener(this);
-        //load.setOnClickListener(this);
-        //rules.setOnClickListener(this);
-        //about.setOnClickListener(this);
+        view.findViewById(R.id.btNewGame).setOnClickListener(this);
+        view.findViewById(R.id.btAbout).setOnClickListener(this);
+        view.findViewById(R.id.btRules).setOnClickListener(this);
 
         return view;
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        mp.start();
+        switch (view.getId()) {
             case R.id.btNewGame:
 //                Intent intent = new Intent(getActivity(), TeamCreationActivity.class);
 //                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 //                startActivity(intent);
 //                getActivity().finish();
                 break;
-            case R.id.btSettings:
-//                SettingsFragment settingsFragment = new SettingsFragment();
-//                changeFragment(settingsFragment);
+            case R.id.btAbout:
+                FragmentUtils.change(new AboutFragment(), getFragmentManager(), R.id.frame_containerone);
                 break;
             case R.id.btRules:
-//                RulesFragment2 rulesFragment = new RulesFragment2();
-//                changeFragment(rulesFragment);
+                FragmentUtils.change(new RulesFragment(), getFragmentManager(), R.id.frame_containerone);
         }
-    }
-
-    private void changeFragment(Fragment fragment){
-        FragmentTransaction transaction = manager.beginTransaction();
-        //transaction.replace(R.id.output, fragment);
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        transaction.addToBackStack(null);
-        transaction.commit();
     }
 }
