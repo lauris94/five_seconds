@@ -14,7 +14,7 @@ import com.baraksoft.com.penkiossekundes.fragments.MainMenuFragment;
 import com.baraksoft.com.penkiossekundes.utils.FragmentUtils;
 import com.baraksoft.com.penkiossekundes.views.BaseAlertDialog;
 
-public class MainWindowActivity extends AppCompatActivity {
+public class MainMenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,20 +33,15 @@ public class MainWindowActivity extends AppCompatActivity {
 
         setContentView(R.layout.mainwindow);
 
-        FragmentUtils.changeWithBack(new MainMenuFragment(), getSupportFragmentManager(), R.id.frame_containerone);
+        FragmentUtils.changeWithBack(new MainMenuFragment(), getSupportFragmentManager(), R.id.main_frame_container);
     }
 
     @Override
     public void onBackPressed() {
         FragmentManager fm = getSupportFragmentManager();
 
-        if (fm.getBackStackEntryCount() == 1) {
+        if (fm.getBackStackEntryCount() >= 1) {
             super.onBackPressed();
-
-        } else if (fm.getBackStackEntryCount() > 1) {
-            fm.popBackStack();
-            super.onBackPressed();
-
         } else {
             BaseAlertDialog baseAlertDialog = new BaseAlertDialog() {
                 @Override
@@ -65,6 +60,6 @@ public class MainWindowActivity extends AppCompatActivity {
                 onBackPressed();
                 return true;
         }
-        return (super.onOptionsItemSelected(menuItem));
+        return super.onOptionsItemSelected(menuItem);
     }
 }

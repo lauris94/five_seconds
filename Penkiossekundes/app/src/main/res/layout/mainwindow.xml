@@ -7,7 +7,7 @@
     android:focusableInTouchMode="true">
 
     <FrameLayout
-        android:id="@+id/frame_containerone"
+        android:id="@+id/main_frame_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

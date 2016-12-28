@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.baraksoft.com.penkiossekundes.R;
-import com.baraksoft.com.penkiossekundes.activities.MainWindowActivity;
+import com.baraksoft.com.penkiossekundes.activities.MainMenuActivity;
 
 /**
  * @author Laurynas
@@ -19,7 +19,7 @@ public class RulesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        ActionBar actionBar = ((MainWindowActivity)getActivity()).getSupportActionBar();
+        ActionBar actionBar = ((MainMenuActivity)getActivity()).getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         return inflater.inflate(R.layout.rules_fragment, container, false);

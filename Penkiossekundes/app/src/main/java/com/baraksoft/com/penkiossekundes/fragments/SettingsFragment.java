@@ -12,9 +12,9 @@ import com.baraksoft.com.penkiossekundes.activities.MainMenuActivity;
 
 /**
  * @author Laurynas
- * @since 2016-12-21
+ * @since 2016-12-28
  */
-public class AboutFragment extends Fragment {
+public class SettingsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -23,7 +23,7 @@ public class AboutFragment extends Fragment {
         ActionBar actionBar = ((MainMenuActivity)getActivity()).getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        View view = inflater.inflate(R.layout.about_fragment, container, false);
+        View view = inflater.inflate(R.layout.settings_fragment, container, false);
         return view;
     }
 }
