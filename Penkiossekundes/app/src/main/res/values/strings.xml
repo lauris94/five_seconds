@@ -1,6 +1,22 @@
 <resources>
     <string name="app_name">Penkios sekundės</string>
 
+    <string name="play">Žaisti</string>
+    <string name="newGame">Naujas žaidimas</string>
+    <string name="rules">Taisyklės</string>
+    <string name="settings">Nustatymai</string>
+    <string name="about">Apie</string>
+    <string name="settingsText">Čia bus nustatymai</string>
+    <string name="endGame">Baigti žaidimą</string>
+    <string name="questionStart">Išvardink tris&#xA0;</string>
+    <string name="questionerStart">Atsakinėja&#xA0;</string>
+    <string name="startTime">Paleisti laiką</string>
+    <string name="endGameDialogTitle">Išjungimas</string>
+    <string name="endGameDialogText">Ar tikrai norite baigti žaidimą? Pakeitimai nebus išsaugoti</string>
+    <string name="yes">Taip</string>
+    <string name="no">Ne</string>
+    <string name="quitText">Ar tikrai norite išjungti programą?</string>
+
     <string-array name="players_array">
         <item>3</item>
         <item>4</item>
@@ -8,5 +24,17 @@
         <item>6</item>
         <item>7</item>
         <item>8</item>
+    </string-array>
+
+    <string-array name="temp_questions_array">
+        <item>protokolo būsenas</item>
+        <item>procesinių sprendimų rūšis</item>
+        <item>nuobaudos rūšis</item>
+        <item>nutarimo pakeitimus</item>
+        <item>ebaudos narius</item>
+        <item>atp būsenas</item>
+        <item>dokumentus, kurie generuojami pagal ANK</item>
+        <item>tyrimo veiksmų rūšis</item>
+        <item>teisenos priemonių rūšis</item>
     </string-array>
 </resources>

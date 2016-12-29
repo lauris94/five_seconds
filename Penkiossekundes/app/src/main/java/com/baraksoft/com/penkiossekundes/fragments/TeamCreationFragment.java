@@ -10,13 +10,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.baraksoft.com.penkiossekundes.R;
+import com.baraksoft.com.penkiossekundes.activities.GamePlayActivity;
 import com.baraksoft.com.penkiossekundes.activities.MainMenuActivity;
+import com.baraksoft.com.penkiossekundes.utils.ActivityUtils;
 
 /**
  * @author Laurynas
  * @since 2016-12-28
  */
-public class TeamCreationFragment extends Fragment {
+public class TeamCreationFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,6 +34,15 @@ public class TeamCreationFragment extends Fragment {
         //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+        view.findViewById(R.id.btPlay).setOnClickListener(this);
         return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btPlay:
+                ActivityUtils.changeActivity(getActivity(), GamePlayActivity.class, getContext());
+        }
     }
 }

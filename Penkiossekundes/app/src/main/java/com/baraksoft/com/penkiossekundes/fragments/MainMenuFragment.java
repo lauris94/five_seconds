@@ -41,10 +41,6 @@ public class MainMenuFragment extends Fragment implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.btNewGame:
                 FragmentUtils.change(new TeamCreationFragment(), getFragmentManager(), R.id.main_frame_container);
-//                Intent intent = new Intent(getActivity(), TeamCreationActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-//                startActivity(intent);
-//                getActivity().finish();
                 break;
             case R.id.btAbout:
                 FragmentUtils.change(new AboutFragment(), getFragmentManager(), R.id.main_frame_container);

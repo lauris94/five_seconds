@@ -8,7 +8,7 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="54dp"
-        android:text="Naujas žaidimas"
+        android:text="@string/newGame"
         android:id="@+id/btNewGame"
         android:layout_gravity="center_horizontal"
         android:textColor="#000000"
@@ -19,7 +19,7 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="54dp"
-        android:text="Taisyklės"
+        android:text="@string/rules"
         android:id="@+id/btRules"
         android:layout_gravity="center_horizontal"
         android:textColor="#000000"
@@ -30,7 +30,7 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="54dp"
-        android:text="Nustatymai"
+        android:text="@string/settings"
         android:id="@+id/btSettings"
         android:layout_gravity="center_horizontal"
         android:textColor="#000000"
@@ -41,7 +41,7 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="54dp"
-        android:text="Apie"
+        android:text="@string/about"
         android:id="@+id/btAbout"
         android:layout_gravity="center_horizontal"
         android:textColor="#000000"
