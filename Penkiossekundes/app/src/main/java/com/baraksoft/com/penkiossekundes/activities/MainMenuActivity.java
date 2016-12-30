@@ -49,7 +49,7 @@ public class MainMenuActivity extends AppCompatActivity {
                     finish();
                 }
             };
-            baseAlertDialog.build(this, getString(R.string.endGameDialogText), getString(R.string.quitText), getString(R.string.no), getString(R.string.yes)).show();
+            baseAlertDialog.build(this, getString(R.string.endGameDialogTitle), getString(R.string.quitText), getString(R.string.no), getString(R.string.yes)).show();
         }
     }
 

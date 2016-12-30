@@ -1,5 +1,6 @@
 package com.baraksoft.com.penkiossekundes.fragments;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -26,6 +27,12 @@ import java.util.Locale;
  */
 public class GameFragment extends Fragment implements View.OnClickListener {
 
+    OnAddPointsListener callback;
+
+    public interface OnAddPointsListener {
+        void onPointsScored(String name);
+    }
+
     private Button btStartTime;
     private TextView timeLeft;
     private QuestionsService questionsService;
@@ -36,6 +43,13 @@ public class GameFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.questions_fragment, container, false);
+
+        try {
+            callback = (OnAddPointsListener) getActivity();
+        } catch (ClassCastException e) {
+            throw new ClassCastException(getActivity().toString()
+                    + " must implement OnAddPointsListener");
+        }
 
         //actionBar button
         getActivity().findViewById(R.id.btEndGame).setOnClickListener(this);
@@ -66,13 +80,12 @@ public class GameFragment extends Fragment implements View.OnClickListener {
     }
 
     private void showEndGameDialog() {
-        BaseAlertDialog baseAlertDialog = new BaseAlertDialog() {
+        new BaseAlertDialog() {
             @Override
             public void onYesClick(DialogInterface dialoginterface, int i) {
                 ActivityUtils.changeActivity(getActivity(), MainMenuActivity.class, getContext());
             }
-        };
-        baseAlertDialog.build(getContext(), getString(R.string.endGameDialogTitle), getString(R.string.endGameDialogText), getString(R.string.no), getString(R.string.yes)).show();
+        }.build(getContext(), getString(R.string.endGameDialogTitle), getString(R.string.endGameDialogText), getString(R.string.no), getString(R.string.yes)).show();
     }
 
     private void handleStartTimeClick() {
@@ -84,13 +97,13 @@ public class GameFragment extends Fragment implements View.OnClickListener {
             }
 
             public void onFinish() {
-                BaseAlertDialog baseAlertDialog = new BaseAlertDialog() {
+                new BaseAlertDialog() {
                     @Override
                     public void onYesClick(DialogInterface dialoginterface, int i) {
+                        callback.onPointsScored(questionsService.getQuestionerName());
                         dialoginterface.cancel();
                     }
-                };
-                baseAlertDialog.build(getContext(), "Atsakymas", "Atsakyta?", getString(R.string.no), getString(R.string.yes)).show();
+                }.build(getContext(), "Atsakymas", "Atsakyta?", getString(R.string.no), getString(R.string.yes)).show();
 
                 setVisibilityTimeFinished();
                 questionsService.prepareQuestionFields(question, questioner);

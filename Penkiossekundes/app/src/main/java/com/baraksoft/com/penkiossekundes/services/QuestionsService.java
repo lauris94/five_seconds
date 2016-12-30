@@ -26,12 +26,16 @@ public class QuestionsService {
         return questionStart.concat(questions[index]);
     }
 
-    private String getNextQuestioner() {
-        return questionerStart.concat("Tūzas");
+    public String getQuestioner() {
+        return questionerStart.concat(getQuestionerName());
+    }
+
+    public String getQuestionerName() {
+        return "Tūzas";
     }
 
     public void prepareQuestionFields(TextView question, TextView questioner) {
         question.setText(getNextQuestion());
-        questioner.setText(getNextQuestioner());
+        questioner.setText(getQuestioner());
     }
 }

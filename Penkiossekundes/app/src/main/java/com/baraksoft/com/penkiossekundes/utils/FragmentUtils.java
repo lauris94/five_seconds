@@ -25,4 +25,12 @@ public class FragmentUtils {
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         transaction.commit();
     }
+
+    public static void change(Fragment finalFragment, FragmentManager manager, int componentId, String tag){
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(componentId, finalFragment, tag);
+        transaction.addToBackStack(null);
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        transaction.commit();
+    }
 }
